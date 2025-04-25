@@ -8,5 +8,5 @@
 
 ## API
 
-- [First](basics/editor.md)
+- [Overview](basics/editor.md)
 - [Managing Conversation Context in the API](basics/managing-conversation-context.md)
