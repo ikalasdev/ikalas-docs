@@ -1,53 +1,64 @@
-# Managing Conversation Context in the API
+# Managing Conversation Context via API
 
-## uuidChat
+## Introduction
 
-When a user executes a function, they can choose to pass a uuidChat.
+Maintaining conversational context is crucial for creating seamless and intelligent interactions within API-driven applications. This document outlines how the `uuidChat` parameter facilitates context management, enabling functions to recall previous interactions and provide relevant, contextualized responses.
 
-The uuidChat allows preserving the conversation context between the user and the AI.
+## The `uuidChat` Parameter
 
-From a uuidChat, one can retrieve all executions of a function:
+When invoking a function via the API, you have the option to include a `uuidChat` parameter. This unique identifier links multiple function executions together, forming a coherent conversation history.
 
-- the input sent by the user
-- the result returned by the function
+**Key Functions:**
 
-When an existing uuidChat is passed during the execution of a function, the function can remember the history of all executions and thus offer a contextualized response.
+- **Context Preservation:** `uuidChat` allows the system to store and retrieve the history of interactions associated with a specific conversation thread. This history includes user inputs and the corresponding function outputs for each execution within that thread.
+- **Contextualized Responses:** By providing an existing `uuidChat` with a function call, the function gains access to the preceding conversation history. This enables it to understand the context and deliver responses that are relevant to the ongoing dialogue, rather than treating each call as an isolated event.
 
-### Examples
+## Usage Scenario: Health Advisor Function
 
-Health Advisor Function
-Step 1: The user executes the function without a uuidChat
+Consider a Health Advisor function designed to provide medical information based on user queries.
 
-1. The user executes the function without a uuidChat
-2. The user asks for advice on medical results
-3. The function responds and saves a uuidChat
+**Initial Interaction (Without `uuidChat`):**
 
-Step 2: The user executes the function with the uuidChat
+1.  A user invokes the Health Advisor function for the first time, asking for advice on medical results (e.g., "What are common treatments for type 2 diabetes in a 30-year-old male?").
+2.  Since no `uuidChat` is provided, the function processes this as a new conversation.
+3.  The function returns the requested information and, importantly, includes a newly generated `uuidChat` in its response. This `uuidChat` now represents the unique identifier for this nascent conversation.
 
-1. Thanks to the previous uuidChat, the function can remember the conversation history and thus offer a contextualized response.
+**Follow-up Interaction (With `uuidChat`):**
 
-### API
+1.  The user has a subsequent question related to the initial query (e.g., "What are the potential side effects of metformin?").
+2.  This time, the user includes the `uuidChat` received in the previous response when calling the function.
+3.  Leveraging this `uuidChat`, the function accesses the conversation history. It understands the context (a 30-year-old male patient being treated for diabetes) and provides a tailored response regarding metformin's side effects relevant to this context.
 
-### API Call Example
+## API Integration
 
-```js
+### API Request Example
+
+To associate a function call with an existing conversation, include the `uuidChat` in the request body:
+
+```json
 {
-   "prompt": "Diabete male 30 years treatment",
-   "uuidChat": "123e4567-e89b-12d3-a456-426614174012"
-}
-
-```
-
-#### API Response Example
-
-```js
-
-{
-    "success": true,
-    "id": "wor-70bdadc1df",
-    "date": "2025-04-25T12:47:12+00:00",
-    "typeOutput": "markup",
-    "result": "Based on the patient record provided, here is a structured medical analysis and treatment approach for this 30-year-old male [...]",
-    "uuidChat": "123e4567-e89b-12d3-a456-426614174012"
+  "prompt": "Diabete male 30 years treatment",
+  "uuidChat": "123e4567-e89b-12d3-a456-426614174012"
 }
 ```
+
+- `prompt`: The user's input or query for the function.
+- `uuidChat`: The unique identifier for the ongoing conversation thread.
+
+### API Response Example
+
+The function's response will include the result and reiterate the `uuidChat` to facilitate further interaction:
+
+```json
+{
+  "success": true,
+  "id": "wor-70bdadc1df",
+  "date": "2025-04-25T12:47:12+00:00",
+  "typeOutput": "markup",
+  "result": "Based on the patient record provided, here is a structured medical analysis and treatment approach for this 30-year-old male [...]",
+  "uuidChat": "123e4567-e89b-12d3-a456-426614174012"
+}
+```
+
+- `result`: The function's output, potentially contextualized by the conversation history.
+- `uuidChat`: The identifier for the conversation, returned for potential use in subsequent calls.
