@@ -1,11 +1,12 @@
 # Table of contents
 
-* [Welcome](README.md)
+- [Welcome](README.md)
 
 ## Getting Started
 
-* [Quickstart](getting-started/quickstart.md)
+- [Quickstart](getting-started/quickstart.md)
 
-## Basics
+## API
 
-* [API](basics/editor.md)
+- [First](basics/editor.md)
+- [Second](basics/managing-conversation-context.md)
