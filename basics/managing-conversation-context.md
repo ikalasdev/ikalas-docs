@@ -62,3 +62,20 @@ The function's response will include the result and reiterate the `uuidChat` to 
 
 - `result`: The function's output, potentially contextualized by the conversation history.
 - `uuidChat`: The identifier for the conversation, returned for potential use in subsequent calls.
+
+## Error Handling
+
+If an invalid `uuidChat` is provided, or if you do not have the necessary permissions to access it, the API will return an HTTP 400 error. The body of the error response will look like this:
+
+```json
+{
+  "success": false,
+  "message": "Parameters are missing or invalids in your request.",
+  "parameters": {
+    "invalidParameter": "uuidChat",
+    "message": "This uuidChat is not valid or you don't have access to it."
+  }
+}
+```
+
+This indicates that the specific `uuidChat` used in the request could not be processed correctly. Ensure that the `uuidChat` is correct and corresponds to a conversation you have access to.
