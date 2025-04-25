@@ -31,13 +31,10 @@ Step 2: The user executes the function with the uuidChat
 ### API Call Example
 
 ```js
-
 {
    "prompt": "Diabete male 30 years treatment",
    "uuidChat": "123e4567-e89b-12d3-a456-426614174012"
 }
-
-
 
 ```
 
