@@ -6,38 +6,9 @@
 
 This article explains how to quickly get started with the Ikalas API.
 
-- Sign up on Ikalas to get an API key. An API key is necessary to run requests on the Ikalas API. You can create up to 3 API keys for free without paying for a subscription. [Signup link here][signup]
+- Sign up on Ikalas to get an API key. An API key is necessary to run requests on the Ikalas API. You can create up to 1 API key for free without paying for a subscription. [Signup link here][signup]
 - Once you've registered, [go to the dashboard][page_api] to manage your API keys. You can view, add, delete, or edit them.
 - Now that you have an API key, you can execute requests. You have two options: use HTTP REST requests or use the official Ikalas npm library.
-- In this quick start guide, we'll use the npm library.
-
-- Install the npm library
-
-```
-npm install @ikalasdev/ikalas
-```
-
-- Import the Ikalas library in your script
-
-```
-const ikalas = require("ikalasdev/ikalas")
-```
-
-- Configure your API key
-
-```
-ikalas.setApiKey("Put your API key here");
-```
-
-- Execute a request
-
-```
-let qrcode = await ikalas.execute("generate-qrcode", {qrCodeData: "https://ikalas.com"});
-```
-
-That's it! You're done!
-Now that you know how to execute a request, you can explore the documentation and find the API methods you need for your project.
-Using the Ikalas API, you can really accelerate your development and be more productive.
 
 ## Overview
 
@@ -104,10 +75,10 @@ axios(config)
 
 **start**: free plan that allows you to execute a few requests and get familiar with the Ikalas API
 **standard**: paid plan for individuals or small startups
-**pro**: paid plan that suits small teams well
+**premium**: paid plan that suits small teams well
 **business**: unlimited plan for large organizations
 
-|                               | Start  | Standard | Pro     | Business  |
+|                               | Start  | Standard | Premium | Business  |
 | ----------------------------- | ------ | -------- | ------- | --------- |
 | Number of requests per day    | 200    | 1000     | 10000   | Unlimited |
 | Size limit for file transfers | 100 MB | 500 MB   | 1000 MB | Unlimited |
