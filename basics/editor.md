@@ -126,7 +126,7 @@ No, requests are authenticated only by an API key sent in the header or configur
 
 #### Is there a subscription for students?
 
-There is no specific subscription for students, but there is a free plan called **Start**. This plan provides limited access to all API features completely free of charge, which is suitable for students.
+There is no specific subscription for students, but please contact us if you need a discount.
 
 [//]: # "These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax"
 [signup]: https://ikalas.com/app/signup
