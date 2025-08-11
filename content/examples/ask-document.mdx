@@ -3,11 +3,11 @@ import { Steps } from "nextra/components";
 
 # Example: Document Analysis with AI
 
-This example shows you how to use the Ikalas document analysis API to extract and analyze content from your PDF documents.
+This example shows you how to use the Ikalas document analysis API to extract and analyze content from your documents.
 
 ## Features
 
-- **PDF Document Analysis**: Automatic extraction and summarization
+- **Document Analysis**: Automatic extraction and summarization
 - **Customizable Prompts**: Ask specific questions about your documents
 - **Multilingual Support**: Analysis in French, English and other languages
 - **Secure Processing**: Your documents are processed securely
@@ -15,14 +15,7 @@ This example shows you how to use the Ikalas document analysis API to extract an
 ## Prerequisites
 
 - A valid Ikalas API key
-- Node.js installed on your machine
-- A PDF document to analyze
 
-## Installing Dependencies
-
-```bash
-npm install axios form-data fs
-```
 
 ## Code Example
 
@@ -74,7 +67,7 @@ npm install axios form-data fs
 
 | Parameter | Type   | Description                               | Required |
 | --------- | ------ | ----------------------------------------- | -------- |
-| `file`    | File   | The PDF document to analyze               | ✅       |
+| `file`    | File   | The document to analyze               | ✅       |
 | `prompt`  | String | The question or instruction for analysis  | ✅       |
 | `apikey`  | String | Your Ikalas API key                       | ✅       |
 
@@ -131,4 +124,3 @@ If you encounter difficulties:
 
 1. **Complete Documentation**: Consult our [API documentation](https://fr.docs.ikalas.com)
 2. **Technical Support**: Contact us via [contact@ikalas.com](mailto:contact@ikalas.com)
-3. **Community Forum**: Join our [Discord community](https://discord.gg/yYHe7bCuw3)
