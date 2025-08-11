@@ -1,0 +1,134 @@
+import { Tabs } from "nextra/components";
+import { Steps } from "nextra/components";
+
+# Example: Document Analysis with AI
+
+This example shows you how to use the Ikalas document analysis API to extract and analyze content from your PDF documents.
+
+## Features
+
+- **PDF Document Analysis**: Automatic extraction and summarization
+- **Customizable Prompts**: Ask specific questions about your documents
+- **Multilingual Support**: Analysis in French, English and other languages
+- **Secure Processing**: Your documents are processed securely
+
+## Prerequisites
+
+- A valid Ikalas API key
+- Node.js installed on your machine
+- A PDF document to analyze
+
+## Installing Dependencies
+
+```bash
+npm install axios form-data fs
+```
+
+## Code Example
+
+<Tabs items={['JavaScript', 'cURL']}>
+  <Tabs.Tab>
+    ```javascript
+    const axios = require('axios');
+    const FormData = require('form-data');
+    const fs = require('fs');
+
+    let data = new FormData();
+    data.append('file', fs.createReadStream('/Users/ikalas/samples/test-medical-report.pdf'));
+    data.append('prompt', 'resume');
+
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'https://ikalas.com/api/v1/ask-document',
+      headers: {
+        'accept': 'application/json',
+        'apikey': 'YOUR_API_KEY_HERE',
+        ...data.getHeaders()
+      },
+      data : data
+    };
+
+    axios.request(config)
+    .then((response) => {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    ```
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash
+    curl -X POST "https://ikalas.com/api/v1/ask-document" \
+      -H "accept: application/json" \
+      -H "apikey: YOUR_API_KEY_HERE" \
+      -F "file=@/Users/ikalas/samples/test-medical-report.pdf" \
+      -F "prompt=resume"
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## API Parameters
+
+| Parameter | Type   | Description                               | Required |
+| --------- | ------ | ----------------------------------------- | -------- |
+| `file`    | File   | The PDF document to analyze               | ✅       |
+| `prompt`  | String | The question or instruction for analysis  | ✅       |
+| `apikey`  | String | Your Ikalas API key                       | ✅       |
+
+## Prompt Examples
+
+Here are some examples of prompts you can use:
+
+- `"resume"` - Generates a summary of the document
+- `"What are the key points?"` - Extracts important points
+- `"Analyze the risks mentioned"` - Identifies risks in the document
+- `"Translate to English"` - Translates the content
+- `"Extract important dates"` - Identifies key dates
+
+## API Response
+
+```json
+{
+  "success": true,
+  "id": "wor-700b29048f",
+  "date": "2025-08-11T10:11:58+00:00",
+  "typeOutput": "markup",
+  "result": "YOUR RESULT DISPLAYS HERE",
+  "__meta": {},
+  "creditsUser": 23,
+  "uuidLogFunction": "b0f066e6-aa5d-4a5e-9c6f-e0e53ec133fa",
+  "ika_conversationId": "98ddc758-70e6-48bf-9310-c30a9231d88e"
+}
+```
+
+## Error Handling
+
+Here are the steps to resolve common issues:
+
+### 1. Verify Your API Key
+
+Make sure your API key is valid and active in your Ikalas account.
+You can verify your API key in the [dashboard](https://dashboard.ikalas.com)
+
+### 2. Check File Size
+
+Accepted sizes depend on your subscription. See details on the [pricing](https://ikalas.com/app/pricing) page
+
+## Common Use Cases
+
+- **Medical Report Analysis**: Extraction of diagnoses and recommendations
+- **Contract Analysis**: Identification of important clauses
+- **Financial Report Analysis**: Extraction of key financial data
+- **Document Translation**: Automatic content translation
+- **Long Document Summarization**: Automatic summary generation
+
+## Support
+
+If you encounter difficulties:
+
+1. **Complete Documentation**: Consult our [API documentation](https://fr.docs.ikalas.com)
+2. **Technical Support**: Contact us via [contact@ikalas.com](mailto:contact@ikalas.com)
+3. **Community Forum**: Join our [Discord community](https://discord.gg/yYHe7bCuw3)
