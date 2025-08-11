@@ -6,17 +6,17 @@ import { IkalasLogo } from "../components/icons";
 
 export const metadata = {
   description:
-    "Documentation officielle de l'API Ikalas - Plateforme d'intelligence artificielle et d'automatisation.",
+    "Official Ikalas API Documentation - Artificial Intelligence and Automation Platform.",
   metadataBase: new URL("https://ikalas.com"),
   keywords: [
     "Ikalas",
     "API",
-    "Intelligence Artificielle",
-    "IA",
-    "Automatisation",
+    "Artificial Intelligence",
+    "AI",
+    "Automation",
     "Documentation",
-    "Développement",
-    "Intégration",
+    "Development",
+    "Integration",
   ],
   generator: "Next.js",
   applicationName: "Ikalas Documentation",
@@ -24,16 +24,16 @@ export const metadata = {
     title: "Ikalas Documentation",
   },
   title: {
-    default: "Ikalas Documentation – API et Intelligence Artificielle",
+    default: "Ikalas Documentation – API and Artificial Intelligence",
     template: "%s | Ikalas Documentation",
   },
   openGraph: {
     url: "./",
     siteName: "Ikalas Documentation",
-    locale: "fr_FR",
+    locale: "en_US",
     type: "website",
     title: "Ikalas Documentation",
-    description: "Documentation officielle de l'API Ikalas",
+    description: "Official Ikalas API Documentation",
   },
   other: {
     "msapplication-TileColor": "#3b82f6",
@@ -48,8 +48,7 @@ export const metadata = {
 
 const banner = (
   <Banner dismissible={false}>
-    🚀 Bienvenue sur la documentation Ikalas ! Découvrez notre API complète et
-    nos fonctions d'IA .
+    🚀 Welcome to Ikalas documentation! Discover our complete API and AI functions.
   </Banner>
 );
 
@@ -68,7 +67,7 @@ const navbar = (
 const footer = (
   <Footer className="flex-col items-center md:items-start">
     <p className="mt-6 text-xs">
-      © {new Date().getFullYear()} Ikalas. Tous droits réservés.
+      © {new Date().getFullYear()} Ikalas. All rights reserved.
     </p>
   </Footer>
 );
@@ -76,7 +75,7 @@ const footer = (
 export default async function RootLayout({ children }) {
   const pageMap = await getPageMap();
   return (
-    <html lang="fr" dir="ltr" suppressHydrationWarning>
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <Head />
       <body>
         <Layout
@@ -84,24 +83,18 @@ export default async function RootLayout({ children }) {
           navbar={navbar}
           pageMap={pageMap}
           docsRepositoryBase="https://github.com/ikalasdev/ikalas-documentation-fr"
-          editLink="Modifier cette page sur GitHub"
+          editLink="Edit this page on GitHub"
           feedback={{
-            content: "Donnez votre avis →",
+            content: "Give feedback →",
           }}
           sidebar={{ defaultMenuCollapseLevel: 1 }}
           footer={footer}
           toc={{
-            title: "Sur cette page",
+            title: "On this page",
             extraContent: (
               <>
                 <a href="https://ikalas.com" className="block mt-1 text-xs">
-                  Lien du site
-                </a>
-                <a
-                  href="https://docs.ikalas.com"
-                  className="block mt-1 text-xs"
-                >
-                  Documentation en anglais
+                  Website link
                 </a>
               </>
             ),

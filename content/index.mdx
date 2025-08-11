@@ -2,99 +2,99 @@ import { Tabs } from "nextra/components";
 
 import { Steps } from "nextra/components";
 
-# Pour commencer
+# Getting Started
 
-Bienvenue sur la documentation officielle de l'API d'Ikalas en français.
-Vous trouverez ici toutes les informations nécessaires pour utiliser l'API d'Ikalas.
+Welcome to the official Ikalas API documentation.
+You will find here all the necessary information to use the Ikalas API.
 
-Ikalas propose une API unifiée qui vous donne accès à des centaines de modèles d'IA via un seul point d'entrée.
-Voici comment commencer.
+Ikalas offers a unified API that gives you access to hundreds of AI models through a single entry point.
+Here's how to get started.
 
 <Steps>
 
-#### Créez votre compte sur Ikalas
+#### Create your Ikalas account
 
-Aller sur [https://ikalas.com](https://ikalas.com) et créer votre compte.
+Go to [https://ikalas.com](https://ikalas.com) and create your account.
 
-#### Créez votre clé d'API
+#### Create your API key
 
-Aller sur [https://dashboard.ikalas.com/\_api](https://dashboard.ikalas.com/_api) et créer votre clé d'API.
+Go to [https://dashboard.ikalas.com/\_api](https://dashboard.ikalas.com/_api) and create your API key.
 
-#### Prenez connaissance de cette documentation pour savoir comment utiliser l'API
+#### Read this documentation to learn how to use the API
 
-#### Commencez à utiliser l'API
+#### Start using the API
 
 </Steps>
 
-## Un exemple simple pour commencer
+## A simple example to get started
 
-Demander à l'IA une biographie de Napoleon Bonaparte en 100 mots.
+Ask the AI for a 100-word biography of Napoleon Bonaparte.
 
 ```js
-// Import de la bibliothèque axios pour effectuer des requêtes HTTP
+// Import the axios library to make HTTP requests
 const axios = require("axios");
 
-// Préparation des données à envoyer à l'API
+// Prepare the data to send to the API
 let data = JSON.stringify({
-  system: "You are a useful assistant", // Message système qui définit le comportement de l'IA
-  prompt: "Biographie de Napoleon Bonaparte en 100 mots", // La question ou demande à l'IA
-  models: "meta-llama/llama-3.3-70b-instruct:free", // Le modèle d'IA à utiliser
-  response_format: "default", // Format de réponse souhaité
+  system: "You are a useful assistant", // System message that defines the AI's behavior
+  prompt: "Biography of Napoleon Bonaparte in 100 words", // Your question or request to the AI
+  models: "meta-llama/llama-3.3-70b-instruct:free", // The AI model to use
+  response_format: "default", // Desired response format
 });
 
-// Configuration de la requête HTTP
+// HTTP request configuration
 let config = {
-  method: "post", // Méthode HTTP : POST pour envoyer des données
-  maxBodyLength: Infinity, // Pas de limite sur la taille du corps de la requête
-  url: "https://ikalas.com/api/v1/api-llm-ia", // URL de l'endpoint de l'API Ikalas
+  method: "post", // HTTP method: POST to send data
+  maxBodyLength: Infinity, // No limit on request body size
+  url: "https://ikalas.com/api/v1/api-llm-ia", // Ikalas API endpoint URL
   headers: {
-    accept: "application/json", // Type de réponse accepté
-    apikey: "VOTRE_CLE_API_ICI", // Votre clé d'API (à remplacer par votre vraie clé)
-    "content-type": "application/json", // Type de contenu envoyé
+    accept: "application/json", // Accepted response type
+    apikey: "YOUR_API_KEY_HERE", // Your API key (replace with your actual key)
+    "content-type": "application/json", // Content type being sent
   },
-  data: data, // Les données à envoyer (définies plus haut)
+  data: data, // Data to send (defined above)
 };
 
-// Exécution de la requête avec gestion des réponses
+// Execute the request with response handling
 axios
   .request(config)
   .then((response) => {
-    // En cas de succès, afficher la réponse de l'API
+    // On success, display the API response
     console.log(JSON.stringify(response.data));
   })
   .catch((error) => {
-    // En cas d'erreur, afficher les détails de l'erreur
+    // On error, display error details
     console.log(error);
   });
 ```
 
-### Explications détaillées du code
+### Detailed code explanations
 
-**1. Import d'axios :**
+**1. Axios import:**
 
 ```js
 const axios = require("axios");
 ```
 
-Axios est une bibliothèque JavaScript populaire pour effectuer des requêtes HTTP. Elle simplifie l'envoi de requêtes vers des APIs.
+Axios is a popular JavaScript library for making HTTP requests. It simplifies sending requests to APIs.
 
-**2. Préparation des données :**
+**2. Data preparation:**
 
 ```js
 let data = JSON.stringify({
   system: "You are a useful assistant",
-  prompt: "Biographie de Napoleon Bonaparte en 100 mots",
+  prompt: "Biography of Napoleon Bonaparte in 100 words",
   models: "meta-llama/llama-3.3-70b-instruct:free",
   response_format: "default",
 });
 ```
 
-- `system` : Définit le rôle ou le comportement de l'IA
-- `prompt` : Votre question ou demande spécifique
-- `models` : Le modèle d'IA à utiliser (ici Llama 3.3 70B gratuit)
-- `response_format` : Format de la réponse souhaitée
+- `system`: Defines the role or behavior of the AI
+- `prompt`: Your specific question or request
+- `models`: The AI model to use (here Llama 3.3 70B free)
+- `response_format`: Desired response format
 
-**3. Configuration de la requête :**
+**3. Request configuration:**
 
 ```js
 let config = {
@@ -103,20 +103,20 @@ let config = {
   url: "https://ikalas.com/api/v1/api-llm-ia",
   headers: {
     accept: "application/json",
-    apikey: "VOTRE_CLE_API_ICI",
+    apikey: "YOUR_API_KEY_HERE",
     "content-type": "application/json",
   },
   data: data,
 };
 ```
 
-- `method: "post"` : Utilise la méthode POST pour envoyer des données
-- `url` : L'endpoint de l'API Ikalas
-- `headers` : Métadonnées de la requête incluant votre clé d'API
-- `data` : Les données à envoyer à l'API
+- `method: "post"`: Uses the POST method to send data
+- `url`: The Ikalas API endpoint
+- `headers`: Request metadata including your API key
+- `data`: Data to send to the API
 
-### Remarques importantes
+### Important notes
 
-- **Remplacez `"VOTRE_CLE_API_ICI"`** par votre vraie clé d'API obtenue sur le dashboard
-- Le modèle `meta-llama/llama-3.3-70b-instruct:free` est gratuit, utilisez n'importe quel modèle d'IA disponible sur Ikalas.
-- Vous pouvez changer le `prompt` pour poser vos propres questions
+- **Replace `"YOUR_API_KEY_HERE"`** with your actual API key obtained from the dashboard
+- The `meta-llama/llama-3.3-70b-instruct:free` model is free, use any AI model available on Ikalas.
+- You can change the `prompt` to ask your own questions
