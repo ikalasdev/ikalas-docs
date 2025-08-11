@@ -1,14 +1,14 @@
 {
-  "index": "Pour commencer",
-  "obtenir-cle-api": "Obtenir une clé API",
-  "editor": "Éditeur de code",
+  "index": "Get started",
+  "obtenir-cle-api": "Get an API key",
+  "editor": "Reminder",
   "exemples": {
-    "title": "Exemples",
+    "title": "Examples",
     "type": "menu",
     "items": {
-      "generation-images": "Génération d'images",
-      "api-basique": "API basique",
-      "authentification": "Authentification"
+      "generation-images": "Image generation",
+      "api-basique": "Basic API",
+      "authentification": "Authentication"
     }
   }
 }
