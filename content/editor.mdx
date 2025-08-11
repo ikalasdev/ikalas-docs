@@ -1,0 +1,63 @@
+# Pense bête
+
+Quelques informations utilises à savoir pour s'y retrouver dans l'API.
+
+| Point de terminaison API               | Description                     |
+| -------------------------------------- | ------------------------------- |
+| `https://ikalas.com/api/v1`            | Url de base pour les appels API |
+| `https://ikalas.com/api/v1/api-llm-ia` | Url pour les appels API IA      |
+
+| Urls                                | Description                            |
+| ----------------------------------- | -------------------------------------- |
+| `https://dashboard.ikalas.com/_api` | Pour créer et retrouver vos clés d'API |
+
+## Authentification
+
+Incluez votre clé API dans toutes les requêtes. Votre clé d'API est ici : [https://dashboard.ikalas.com/\_api](https://dashboard.ikalas.com/_api)
+
+## Formats de requête et de réponse
+
+L'API Ikalas utilise JSON pour toutes les requêtes et réponses. Assurez-vous d'inclure l'en-tête `Content-Type: application/json` dans vos requêtes.
+
+Exemple de requête :
+
+```json
+{
+  "system": "You are a useful assistant",
+  "prompt": "Date de naissance Napoléon",
+  "models": "meta-llama/llama-3.3-70b-instruct:free",
+  "response_format": "default"
+}
+```
+
+Exemple de réponse :
+
+```json
+{
+  "success": true,
+  "id": "pos-af29738750",
+  "date": "2025-08-07T16:57:00+00:00",
+  "typeOutput": "json",
+  "result": {
+    "model": "meta-llama/llama-3.3-70b-instruct:free",
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "La date de naissance de Napoléon Bonaparte est le 15 août 1769. Il est né à Ajaccio, en Corse.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "credits_spent": null
+  },
+  "creditsUser": 9688,
+  "uuidLogFunction": "758691cf-4449-4d87-9729-45de94660f49",
+  "ika_conversationId": "e35b1024-05b4-49d2-8e83-9590e2f7b309"
+}
+```

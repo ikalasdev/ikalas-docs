@@ -1,0 +1,29 @@
+{
+  "name": "ikalas-documentation-fr",
+  "version": "1.0.0",
+  "description": "Documentation officielle de l'API Ikalas - Plateforme d'intelligence artificielle et d'automatisation",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikalasdev/ikalas-documentation-fr.git"
+  },
+  "author": "Ikalas Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ikalasdev/ikalas-documentation-fr/issues"
+  },
+  "homepage": "https://ikalas.com/docs",
+  "dependencies": {
+    "next": "^15.4.6",
+    "nextra": "^4.3.0",
+    "nextra-theme-docs": "^4.3.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}
